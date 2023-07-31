@@ -1,6 +1,6 @@
 # Physical Design Using ASIC Class
 
-![yosys](./softwares/yosys.png)
+
 
 ```
 Yosys
@@ -16,3 +16,4 @@ $ make
 $ sudo make install
 
 ```
+![yosys](./softwares/yosys.png)
