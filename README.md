@@ -16,4 +16,4 @@ $ make
 $ sudo make install
 
 ```
-![yosys](./softwares/yosys.png)
+![yosys1](./softwares/yosys.png)
