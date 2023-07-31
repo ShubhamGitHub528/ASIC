@@ -17,3 +17,5 @@ $ sudo make install
 
 ```
 ![yosys1](./softwares/yosys.png)
+
+
