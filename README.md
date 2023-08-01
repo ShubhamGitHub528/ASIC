@@ -54,10 +54,8 @@ Below is the screenshot showing sucessful Installation:
   ```bash
 sudo apt-get install gtkwave
  ```
- Below is the screenshot showing sucessful installation:
-
-
 
 Below is the screenshot showing sucessful launch:
+![GTKWAVE](./software/.Gtkwave.png)
 
 </details>
