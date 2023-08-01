@@ -5,8 +5,6 @@
 
 ## Day 0
 
--[yosys](#yosys)
-
 
 <details>
  <summary> Yosys </summary>
@@ -56,6 +54,6 @@ sudo apt-get install gtkwave
  ```
 
 Below is the screenshot showing sucessful launch:
-![GTKWAVE](./software/.Gtkwave.png)
+![Gtkwave](./softwares/Gtkwave.png)
 
 </details>
