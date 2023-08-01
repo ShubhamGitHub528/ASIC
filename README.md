@@ -2,6 +2,16 @@
 -[yosys](#yosys)
 
 ## Yosys
+<details>
+ <summary> Summary </summary>
+	
+I installed the needed tools.
+
+</details>	
+
+<details>
+ <summary> Yosys </summary>
+    
 ```
 
 $ git clone https://github.com/YosysHQ/yosys.git
@@ -17,5 +27,12 @@ $ sudo make install
 
 ```
 ![yosys1](./softwares/yosys.png)
+
+</details>	
+
+## iVerilog 
+![iVerilog](./softwares/iVerilog.png)
+
+
 
 
