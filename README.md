@@ -1,17 +1,17 @@
 # Physical Design Using ASIC Class
+
+
+[Day 0](#day-0) Installation of required EDA Tools.
+
+## Day 0
+
 -[yosys](#yosys)
 
-## Yosys
-<details>
- <summary> Summary </summary>
-	
-I installed the needed tools.
-
-</details>	
 
 <details>
  <summary> Yosys </summary>
-    
+    Commands to install Yosys on Linux.
+	
 ```
 
 $ git clone https://github.com/YosysHQ/yosys.git
@@ -26,13 +26,38 @@ $ make
 $ sudo make install
 
 ```
+Below is the screenshot showing sucessful Installation:
 ![yosys1](./softwares/yosys.png)
 
 </details>	
 
-## iVerilog 
+
+<details>
+ <summary> iVerilog </summary>
+    Commans to install iVerilog
+    
+	
+```
+
+sudo apt-get install iverilog.
+
+```
+
+Below is the screenshot showing sucessful Installation:
 ![iVerilog](./softwares/iVerilog.png)
+</details>
+ <details>
+ <summary> gtkwave </summary>
+
+
+ I installed gtkwave using the following command:
+  ```bash
+sudo apt-get install gtkwave
+ ```
+ Below is the screenshot showing sucessful installation:
 
 
 
+Below is the screenshot showing sucessful launch:
 
+</details>
