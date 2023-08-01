@@ -3,6 +3,8 @@
 
 [Day 0](#day-0) Installation of required EDA Tools.
 
+[Day 1](#day-1) 
+
 ## Day 0
 
 
@@ -78,3 +80,45 @@ Below is the screenshot showing sucessful Launch:
 
 </details>
 
+ <details>
+ <summary> magic </summary>
+
+
+ I installed magic using the following commands:
+  ```bash
+sudo apt-get install m4
+sudo apt-get install tcsh
+sudo apt-get install csh
+sudo apt-get install libx11-dev
+sudo apt-get install tcl-dev tk-dev
+sudo apt-get install libcairo2-dev
+sudo apt-get install mesa-common-dev libglu1-mesa-dev
+sudo apt-get install libncurses-dev
+ ```
+ Below is the screenshot showing sucessful Launch:
+
+![magic](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/c3a15599-6a5e-43a8-bb88-f04c4d993b41)
+
+ </details>
+
+  <details>
+ <summary> OpenSTA </summary>
+
+
+ I installed and built OpenSTA (including the needed packages) using the following commands:
+ ```bash
+sudo apt-get install cmake clang gcctcl swig bison flex
+git clone https://github.com/The-OpenROAD-Project/OpenSTA.git
+cd OpenSTA
+mkdir build
+cd build
+cmake ..
+make
+```
+Below is the screenshot showing sucessful Launch:
+
+![OpenSTA](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/bfd8d812-4a8a-4afa-8952-42cc15e36e2f)
+
+</details>
+
+## Day 1
