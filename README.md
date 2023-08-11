@@ -1,11 +1,7 @@
 # Physical Design Using ASIC Class
 
-
-[Day 0](#day-0) Installation of required EDA Tools.
-
-[Day 1](#day-1) 
-
-## Day 0
+## Week 1
+### Day 1
 
 
 <details>
@@ -121,38 +117,132 @@ Below is the screenshot showing sucessful Launch:
 
 </details>
 
-## Day 1
-### Introduction to iverilog, Design and Test Bench
+## Week 2
+### Day 1 : iVerilog & GTKwave
+<details>
+ <summary> Introduction to iverilog, Design and Test Bench</summary>
 
-#### Simulator
-• RTL design is checked for adherence to the spec by simulating the design
-• Simulator is the tool used for simulating the design
-• iverilog is the tool used for this course
+
+#### Simulation
+
+* RTL design is checked for adherence to the spec by simulating the design
+* Simulator is the tool used for simulating the design
+* iverilog is the tool used for this course
+
 
 #### Design
-• Design is the actual Verilog code or set of Verilog codes which has the intended functionality to meet with the required specifications
+* Design is the actual Verilog code or set of Verilog codes which has the intended functionality to meet with the required specifications
 
 #### TestBench
-• TestBench is the setup to apply stimulus (test _vectors) to the design to check its functionality
+* TestBench is the setup to apply stimulus (test _vectors) to the design to check its functionality
 ![Screenshot from 2023-08-11 23-07-19](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/3e60167b-7fbe-46b2-9d15-156672e5cce5)
 
 
 #### How simulator works
-• Simulator looks for the changes on the input signals
-• Upon change to the input the output is evaluated
-• If no change to the input, no change to the output!
-• Simulator is looking for change in the values of input!
+* Simulator looks for the changes on the input signals
+* Upon change to the input the output is evaluated
+* If no change to the input, no change to the output!
+* Simulator is looking for change in the values of input!
 
 ![Screenshot from 2023-08-11 22-57-07](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/dd5d073b-c2c4-4bb1-b69f-53c56648e6c5)
 
+</details>
+<details>
+ <summary> Demostration of the Icarus Verilog and GTKWave </summary>
+
+![Screenshot from 2023-08-12 01-57-59](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/94cbeb1b-d879-492a-9b24-be2ea81b7f9b)
+</details>
+
+</details>
+
+### Day 2: Yosys
+<details>
+ <summary> Introduction to Yosys </summary>
+
+	
+Yosys is an open-source software framework for Verilog RTL (Register Transfer Level) synthesis. It's commonly used in digital design and electronic engineering to convert high-level hardware descriptions written in Verilog into optimized gate-level representations that can be used for ASIC (Application-Specific Integrated Circuit) or FPGA (Field-Programmable Gate Array) implementations. Yosys provides a range of synthesis tools and optimization techniques to generate efficient and compact hardware designs. It's widely used in the hardware design community and is known for its flexibility, extensibility, and ability to handle complex designs.
+</details>
+ <details>
+ <summary> Labs using Yosys and Sky130 PDKs </summary>
+	 
+To invoke yosys Type ```yosys```.
+![Screenshot from 2023-08-12 00-40-27](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/5f73071f-e10b-4694-9bbd-c1d859912455)
+
+*Note: We should be in the directory in which we have cloned the github link.
+![Screenshot from 2023-08-12 00-40-04](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/d0c2d7bd-3949-45ee-8c59-7ea41ca7a181)
+
+
+All libraries will be in ```myLib```
+
+**Step-1:** Read the Library 
+```
+read_liberty -lib ../PATH
+```
+***Step-2:** Read Design
+```
+read_verilog FILE NAME
+![Screenshot from 2023-08-12 00-41-41](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/4da8bc2f-f1ff-4ccf-b0a1-42185984bd53)
+
+```
+***Step-3:** Synthesis 
+```
+synth -top FILE NAME
+```
+**Step-4:** Genetare Netlist 
+
+abc is command to convert RTL file to gate. And to what gate is need to specify is Written in the Path. 
+```
+abc -liberty ../PATH
+```
+Report Generated
+![Screenshot from 2023-08-12 00-42-02](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/794992ae-0ea1-438c-b70f-7221e702bfe4)
+
+To see logic realised
+```
+show
+```
+![Screenshot from 2023-08-12 00-55-53](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/5b0e096b-4f0b-47f1-8882-d2f4399c3ae9)
+
+**Step-5:** To write Netlist 
+```
+write_verilog FILE NAME
+```
+![Screenshot from 2023-08-12 01-18-05](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/e180b3e8-7319-4307-8281-71505772bbab)
+
+</details>
+
+## Week 3
+### Day 1: 
+ <details>
+ <summary> Timing limbs, hierarchical vs flat synthesis and efficient flop coding styles </summary>
+
+
+
+
+
+</details>
+
+### Day 2 :
+ <details>
+ <summary> Combinational and sequential optimizations </summary>
 
 
 
 
 
 
+</details>
 
 
+
+
+## References
+1. https://yosyshq.net/yosys/
+2. https://steveicarus.github.io/iverilog/
+3. https://gtkwave.sourceforge.net/
+4. https://ngspice.sourceforge.io/
+5. https://github.com/The-OpenROAD-Project/OpenSTA
+6. http://opencircuitdesign.com/magic/
 
 
 
