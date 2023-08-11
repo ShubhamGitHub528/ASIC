@@ -122,3 +122,45 @@ Below is the screenshot showing sucessful Launch:
 </details>
 
 ## Day 1
+### Introduction to iverilog, Design and Test Bench
+
+#### Simulator
+• RTL design is checked for adherence to the spec by simulating the design
+• Simulator is the tool used for simulating the design
+• iverilog is the tool used for this course
+
+#### Design
+• Design is the actual Verilog code or set of Verilog codes which has the intended functionality to meet with the required specifications
+
+#### TestBench
+• TestBench is the setup to apply stimulus (test _vectors) to the design to check its functionality
+![Screenshot from 2023-08-11 23-07-19](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/3e60167b-7fbe-46b2-9d15-156672e5cce5)
+
+
+#### How simulator works
+• Simulator looks for the changes on the input signals
+• Upon change to the input the output is evaluated
+• If no change to the input, no change to the output!
+• Simulator is looking for change in the values of input!
+
+![Screenshot from 2023-08-11 22-57-07](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/dd5d073b-c2c4-4bb1-b69f-53c56648e6c5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
