@@ -215,18 +215,76 @@ write_verilog FILE NAME
 ### Day 1: 
  <details>
  <summary> Timing limbs, hierarchical vs flat synthesis and efficient flop coding styles </summary>
+ <details>
+ <summary> Introduction to .lib File </summary>
+
+![Screenshot from 2023-08-12 11-47-53](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/c10f441c-52d4-4dd7-8f4b-6ff4fbacf5a0)
+** PVT parameters **
+![WhatsApp Image 2023-08-12 at 8 34 36 PM](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/4475ef7d-54e0-4ca0-af78-4dceaa97ff3e)
+
+Different versions of the same logic gate
+![Screenshot from 2023-08-12 12-53-57](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/132be748-8774-4ac2-a979-9b14e0151e16)
+
+Multiple Modules
+![Screenshot from 2023-08-12 14-00-16](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/c9ae3b7a-b781-45cd-b3c5-c22b5384685c)
+
+![Screenshot from 2023-08-12 14-19-45](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/64e65436-3374-45db-8622-2ebd0f1062e7)
+![Screenshot from 2023-08-12 14-22-13](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/eba3c825-a546-4a39-ad4c-ad31cdbc86ba)
 
 
+</details>
+<details>
+ <summary> Various Flop Coding Styles </summary>
+	
+![WhatsApp Image 2023-08-12 at 8 34 36 PM (1)](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/d5fea351-8b63-4691-8017-4b3873630a8d)
+</details>
+<details>
+ <summary> Why Flops? </summary>
 
+![WhatsApp Image 2023-08-12 at 8 34 37 PM](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/ef6f5cb4-a9c7-4228-8c4a-519bc28b3ed8)
+</details>
 
+<details>
+ <summary> Asynchronous  </summary>
+	
+![WhatsApp Image 2023-08-12 at 8 34 37 PM (1)](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/8029b4a5-e75d-447e-b583-e3baaff4def0)
+![Screenshot from 2023-08-12 18-29-17](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/5903e52f-3fe8-4e24-af77-eefadf698c66)
+</details>
+<details>
+ <summary> Synchronous </summary>
+	
+![WhatsApp Image 2023-08-12 at 8 34 38 PM](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/2aece9d0-763f-43d1-b8db-16b58eb14d8c)
+![Screenshot from 2023-08-12 18-39-30](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/e6d1db4f-81b3-4c05-a672-1bfd46c63377)
 
+<details>
+ <summary> Synthesis </summary>
+
+![WhatsApp Image 2023-08-12 at 8 34 38 PM (1)](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/6d1fa204-4604-459d-9f5a-18a73102fe70)
+![Screenshot from 2023-08-12 19-37-35](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/5ade8840-ea39-4dd5-b323-7a50ccb7674a)
+</details>
+</details>
+
+<details>
+ <summary> Synchronous & Asynchronous Reset </summary>
+	
+![WhatsApp Image 2023-08-12 at 8 34 39 PM](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/d7bdb2af-5ecf-49aa-9493-9321d018650d)
+
+</details>
+
+<details>
+ <summary> Optimization </summary>
+
+![WhatsApp Image 2023-08-12 at 8 34 39 PM (1)](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/b05c4af9-a5e3-4b98-bb1d-2240eaa026f5)
+![Screenshot from 2023-08-12 20-03-12](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/9b19d7f9-bfb9-4e62-ad36-88bcac8db02f)
+
+![WhatsApp Image 2023-08-12 at 8 34 40 PM (1)](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/199cc57c-bfb6-46b0-96be-1b2e37a1e134)
+
+</details>
 </details>
 
 ### Day 2 :
  <details>
  <summary> Combinational and sequential optimizations </summary>
-
-
 
 
 
