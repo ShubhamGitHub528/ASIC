@@ -1,7 +1,8 @@
+
 # Physical Design Using ASIC Class
 
-## Week 1
-### Day 1
+
+## Day 1
 
 
 <details>
@@ -117,8 +118,7 @@ Below is the screenshot showing sucessful Launch:
 
 </details>
 
-## Week 2
-### Day 1 : iVerilog & GTKwave
+## Day 2
 <details>
  <summary> Introduction to iverilog, Design and Test Bench</summary>
 
@@ -155,7 +155,7 @@ Below is the screenshot showing sucessful Launch:
 
 </details>
 
-### Day 2: Yosys
+
 <details>
  <summary> Introduction to Yosys </summary>
 
@@ -211,8 +211,7 @@ write_verilog FILE NAME
 
 </details>
 
-## Week 3
-### Day 1: 
+
  <details>
  <summary> Timing limbs, hierarchical vs flat synthesis and efficient flop coding styles </summary>
  <details>
@@ -282,18 +281,75 @@ Multiple Modules
 </details>
 </details>
 
-### Day 2 :
+## Day 3 : Combinational and sequential optimizations
+*Combinational and sequential optimizations are two different approaches used in digital circuit design to improve the performance, efficiency, and reliability of electronic systems. These optimizations target different aspects of the design process and address various challenges that arise when designing complex digital circuits.*
+
  <details>
- <summary> Combinational and sequential optimizations </summary>
+ <summary> Combinational Optimizations </summary>
+Common techniques for combinational optimization include:
+
+* Gate-Level Optimization: This involves simplifying logic expressions and minimizing the number of logic gates needed to implement a particular function.
+* Technology Mapping: Selecting the optimal gate library for implementing a logic function based on the available manufacturing technology.
+* Boolean Algebra Simplification: Applying algebraic identities and theorems to simplify Boolean expressions and reduce the complexity of the logic.
+* Logic Synthesis: Automatically generating optimized gate-level representations of a design from a high-level description.
+
+**Example AND Gate**
+![Screenshot from 2023-08-13 11-48-57](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/3c49111a-a728-4e59-a019-794f1831d4ab)
 
 
-
+**Example OR Gate**
+Nand inverted and Gate
+![Screenshot from 2023-08-13 11-50-59](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/fc5b74ca-c6a7-411f-97b7-13117df6392a)
 
 </details>
 
 
+ <details>
+ <summary> Sequential Optimizations </summary>
+	 
+*Sequential circuits contain memory elements, such as flip-flops and registers, which allow them to store and process data over time. Sequential optimization focuses on improving the clock frequency, reducing power consumption, and ensuring proper timing and synchronization in these circuits.*
+
+Common techniques for sequential optimization include:
+
+* Pipeline Optimization: Breaking down a computation into smaller stages that can be processed concurrently, thus increasing throughput and reducing the critical path delay.
+* Clock Gating: Disabling clock signals to specific circuit blocks when they are not needed, reducing power consumption.
+* Retiming: Reordering registers within a design to optimize the timing paths and improve the clock frequency.
+* State Machine Optimization: Reducing the number of states or transitions in finite state machines to simplify control logic and improve performance.
 
 
+**Example dff_const1**
+
+![Screenshot from 2023-08-13 12-18-07](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/801bda1b-74d1-4bf0-8ba7-455989f365e2)
+
+Synthesis
+
+![Screenshot from 2023-08-13 12-23-41](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/5a92d016-245c-4ce9-9d8f-09020eb2b1df)
+
+**Example dff_const2**
+
+![Screenshot from 2023-08-13 12-34-08](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/41d83c88-99e3-4c4b-ab95-4274d0d87e66)
+
+**Example dff_const3**
+Waveform
+![Screenshot from 2023-08-13 13-09-10](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/3cc095b7-db02-4725-859a-041c86927ce1)
+
+Synthesis
+![Screenshot from 2023-08-13 13-12-07](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/f1f3786d-268a-4bfa-9341-eb2808e863d5)
+
+**Example dff_const4**
+
+![Screenshot from 2023-08-13 15-21-38](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/d71e4195-e9d4-4cf0-9ab7-a92e10a98393)
+
+
+**Example dff_const5**
+
+![Screenshot from 2023-08-13 15-33-39](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/42de69de-478f-40e3-b100-e1990f452f3c)
+
+**Counter_opt**
+![Screenshot from 2023-08-13 16-12-28](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/63c83c51-3b74-4578-9d50-ad8592bb8632)
+
+
+</details>
 ## References
 1. https://yosyshq.net/yosys/
 2. https://steveicarus.github.io/iverilog/
