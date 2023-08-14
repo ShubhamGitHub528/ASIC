@@ -605,14 +605,132 @@ Waveform using Standers cells.
 
 
  <details>
- <summary> If Case Constructs </summary>
+ <summary> If Constructs </summary>
+	 
+**incomp_if**
+```
+module incomp_if (input i0 , input i1 , input i2 , output reg y);
+always @ (*)
+begin
+	if(i0)
+		y <= i1;
+end
+endmodule
+```
+Waveform - *Here Y behaves as a Latch*
+![Screenshot from 2023-08-14 18-24-12](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/f5dc6d8f-da6e-4e69-b5dd-fcf892ab00c1)
+
+Statistics - *We can see here we have infered a DLATCH*
+![Screenshot from 2023-08-14 18-25-35](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/8b1d8996-6b92-4132-a540-85ec5b38c6ad)
+
+Synthesis - 
+![Screenshot from 2023-08-14 18-26-58](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/8af7cd25-1745-4f4e-9ed2-1da67332b03a)
+
+**incomp_if2**
+```
+
+module incomp_if2 (input i0 , input i1 , input i2 , input i3, output reg y);
+always @ (*)
+begin
+	if(i0)
+		y <= i1;
+	else if (i2)
+		y <= i3;
+
+end
+endmodule
+```
+Waveform- *Latching when both io & i1 are zero*
+![Screenshot from 2023-08-14 18-35-00](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/32af67ac-a451-4468-9c65-5891f64ea120)
+
+Statistics *Infered a DLATCH*
+![Screenshot from 2023-08-14 18-36-25](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/0647c0b6-64ce-46c1-a288-99a4ee916908)
+
+Synthesis- *The OR operation of i0 &i1 will be given to enable of DLATCH*
+![Screenshot from 2023-08-14 18-37-02](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/dc42bd6f-5219-4ab6-be1e-f686df29f418)
 
 
 
  </details>
  <details>
- <summary> Labs </summary>
+ <summary> Case Constructs </summary>
+	 
+**incomp_case**
+```
+module incomp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg y);
+always @ (*)
+begin
+	case(sel)
+		2'b00 : y = i0;
+		2'b01 : y = i1;
+	endcase
+end
+endmodule
+```
+Waveform- *Latching when sel= 10 or sel= 11* It will continue matching the value of Y which was before.
+![Screenshot from 2023-08-14 18-49-42](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/7030c10b-84be-4cef-83cb-5f5a1bb94b93)
 
+Statistics
+![Screenshot from 2023-08-14 18-51-49](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/e3140cde-d263-4a1b-b157-ab2836a6c93f)
+
+Synthesis
+![Screenshot from 2023-08-14 18-53-59](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/eb278226-a35b-403e-ae3b-5b5824f04b9b)
+
+**comp_case**
+```
+
+
+module comp_case (input i0 , input i1 , input i2 , input [1:0] sel, output reg y);
+always @ (*)
+begin
+	case(sel)
+		2'b00 : y = i0;
+		2'b01 : y = i1;
+		default : y = i2;
+	endcase
+end
+endmodule
+```
+
+Waveform 
+![Screenshot from 2023-08-14 18-59-49](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/66a69bed-c881-41af-9700-ad4c2bb3e006)
+
+Statistics- *No Latch involved*
+![Screenshot from 2023-08-14 19-02-01](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/50ab42e3-b9dc-4be9-93ca-1ddb2304c005)
+
+Synthesis- *4x1 Mux*
+![Screenshot from 2023-08-14 19-02-57](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/7036fc2c-79eb-4504-bebc-0213fe01e502)
+
+
+**partial_case_assign**
+Statistics- *Only one Latch infered in Path of X*
+![Screenshot from 2023-08-14 19-12-27](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/4e96bd67-3374-4f9e-8d1b-53f045518887)
+Synthesis
+![Screenshot from 2023-08-14 19-13-35](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/9f35077a-92d5-4254-86b8-9cc5f0bca6be)
+
+**bad_case**
+```
+module bad_mux (input i0 , input i1 , input sel , output reg y);
+always @ (sel)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+```
+Waveform- *Output gets confused when sel= 10 or sel=11 and hence behaves as a LATCH*
+![Screenshot from 2023-08-14 23-54-08](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/c23c5f73-0124-4cde-a62c-7be73a3bdeb2)
+
+Statistics- *No LATCH involved*
+![Screenshot from 2023-08-14 22-36-49](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/3a396e94-7182-4630-bf29-4282b4c1b581)
+
+Synthesis- 
+![Screenshot from 2023-08-14 22-38-36](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/dde6e462-b481-42cf-8a7d-f0488aa96c52)
+
+Waveform- *using standered cell models and testbench*
+![Screenshot from 2023-08-14 22-55-00](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/a7ece238-913d-474e-a056-612a7b188334)
 
 
 </details>
