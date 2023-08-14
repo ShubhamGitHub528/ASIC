@@ -4,6 +4,8 @@
 
 ## Day 1: Introduction to Verilog RTL Design and Synthesis.
 
+<details>
+ <summary> Installation of required Tools </summary>
 
 <details>
  <summary> Yosys </summary>
@@ -118,7 +120,6 @@ Below is the screenshot showing sucessful Launch:
 
 </details>
 
-## Day 2: Timing libs, hierarchical vs flat synthesis and efficient flop coding styles.
 <details>
  <summary> Introduction to iverilog, Design and Test Bench</summary>
 
@@ -219,9 +220,13 @@ write_verilog FILE NAME
 
 </details>
 
+</details>
+
+
+## Day 2: Timing libs, hierarchical vs flat synthesis and efficient flop coding styles.
 
  <details>
- <summary> Timing limbs, hierarchical vs flat synthesis and efficient flop coding styles </summary>
+ <summary> Introduction to Timing libs </summary>
 
 **Introduction to .lib File**
 *A .lib file, also known as a Liberty file, is a standard format used to describe the timing, power, and logical characteristics of cells in a digital library. These libraries are essential for the process of logic synthesis and technology mapping in digital design.*
@@ -229,7 +234,14 @@ write_verilog FILE NAME
 ![Screenshot from 2023-08-12 11-47-53](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/c10f441c-52d4-4dd7-8f4b-6ff4fbacf5a0)
 **PVT parameters**
 ![WhatsApp Image 2023-08-12 at 8 34 36 PM](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/4475ef7d-54e0-4ca0-af78-4dceaa97ff3e)
+</details>
 
+ <details>
+ <summary> Hierarchical vs Flat Synthesis </summary>
+	 
+**Flatten**
+*In Yosys, the "flatten" command is used to perform this flattening process. When you run the command, Yosys attempts to inline instances of submodules, removing the module hierarchy. This can be useful before performing certain types of optimizations that might work better on a flattened design.*
+  
 **Different versions of the same logic gate**
 ![Screenshot from 2023-08-12 12-53-57](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/132be748-8774-4ac2-a979-9b14e0151e16)
 
@@ -303,7 +315,9 @@ endmodule
 ```
 ![Screenshot from 2023-08-12 14-19-45](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/64e65436-3374-45db-8622-2ebd0f1062e7)
 ![Screenshot from 2023-08-12 14-22-13](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/eba3c825-a546-4a39-ad4c-ad31cdbc86ba)
-
+</details>
+ <details>
+ <summary> Flop Codings </summary>
 
 **Why Flops?**
 They provide memory and state-holding capabilities, allowing circuits to store data and make decisions based on history and current inputs. Combinational circuits use logic gates to directly process inputs without memory elements.
@@ -364,6 +378,19 @@ Common techniques for sequential optimization include:
 
 **Example dff_const1**
 
+```
+module dff_const1(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b0;
+	else
+		q <= 1'b1;
+end
+
+endmodule
+```
+
 ![Screenshot from 2023-08-13 12-18-07](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/801bda1b-74d1-4bf0-8ba7-455989f365e2)
 
 Synthesis
@@ -372,9 +399,42 @@ Synthesis
 
 **Example dff_const2**
 
+```
+module dff_const2(input clk, input reset, output reg q);
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+		q <= 1'b1;
+	else
+		q <= 1'b1;
+end
+
+endmodule
+```
 ![Screenshot from 2023-08-13 12-34-08](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/41d83c88-99e3-4c4b-ab95-4274d0d87e66)
 
 **Example dff_const3**
+```
+module dff_const3(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b0;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+
+endmodule
+```
+
 Waveform
 ![Screenshot from 2023-08-13 13-09-10](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/3cc095b7-db02-4725-859a-041c86927ce1)
 
@@ -383,14 +443,71 @@ Synthesis
 
 **Example dff_const4**
 
+```
+module dff_const4(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b1;
+		q1 <= 1'b1;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+
+endmodule
+```
 ![Screenshot from 2023-08-13 15-21-38](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/d71e4195-e9d4-4cf0-9ab7-a92e10a98393)
 
 
 **Example dff_const5**
 
+```
+
+module dff_const5(input clk, input reset, output reg q);
+reg q1;
+
+always @(posedge clk, posedge reset)
+begin
+	if(reset)
+	begin
+		q <= 1'b0;
+		q1 <= 1'b0;
+	end
+	else
+	begin
+		q1 <= 1'b1;
+		q <= q1;
+	end
+end
+
+endmodule
+```
 ![Screenshot from 2023-08-13 15-33-39](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/42de69de-478f-40e3-b100-e1990f452f3c)
 
 **Counter_opt**
+
+```
+module counter_opt (input clk , input reset , output q);
+reg [2:0] count;
+assign q = count[0];
+
+always @(posedge clk ,posedge reset)
+begin
+	if(reset)
+		count <= 3'b000;
+	else
+		count <= count + 1;
+end
+
+endmodule
+```
 ![Screenshot from 2023-08-13 16-12-28](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/63c83c51-3b74-4578-9d50-ad8592bb8632)
 
 
@@ -412,6 +529,12 @@ Synthesis
 	 
 **Ternary Operator**
 
+```
+module ternary_operator_mux (input i0 , input i1 , input sel , output y);
+	assign y = sel?i1:i0;
+	endmodule
+```
+
 Waveform
 ![Screenshot from 2023-08-13 22-12-03](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/cf98805f-5ad2-422e-bb13-d1d3502a02c6)
 
@@ -423,6 +546,17 @@ Waveform using Standers cells.
 
  
 **Bad_Mux**
+```
+module bad_mux (input i0 , input i1 , input sel , output reg y);
+always @ (sel)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+```
 
 In this Wavefrom we cannot see changes in Y as of changes in i0. It just act as a flop which changes as their are changes in select line. 
 ![Screenshot from 2023-08-14 10-44-49](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/5f7897b0-cd48-416b-859f-031eee406211)
@@ -439,6 +573,16 @@ In this Wavefrom we can see changes in Y as of changes in i0.
  <summary> Blocking and Non-Blocking </summary>
 
 **Blocking_Coveat**
+```
+module blocking_caveat (input a , input b , input  c, output reg d); 
+reg x;
+always @ (*)
+begin
+	d = x & c;
+	x = a | b;
+end
+endmodule
+```
 
 In this waveform thier is *Synthesis Simulation mismatch* due to Blocking Statements.
 ![Screenshot from 2023-08-14 11-12-28](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/9aff427f-a806-4d2d-9644-e22f6a2ba5c1)
