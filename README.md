@@ -1,5 +1,5 @@
 
-# Physical Design Using ASIC Class
+# RTL Design using Verilog with SKY130 Technology.
 
 
 ## Day 1: Introduction to Verilog RTL Design and Synthesis.
@@ -229,10 +229,12 @@ write_verilog FILE NAME
  <summary> Introduction to Timing libs </summary>
 
 **Introduction to .lib File**
+
 *A .lib file, also known as a Liberty file, is a standard format used to describe the timing, power, and logical characteristics of cells in a digital library. These libraries are essential for the process of logic synthesis and technology mapping in digital design.*
 
 ![Screenshot from 2023-08-12 11-47-53](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/c10f441c-52d4-4dd7-8f4b-6ff4fbacf5a0)
 **PVT parameters**
+
 ![WhatsApp Image 2023-08-12 at 8 34 36 PM](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/4475ef7d-54e0-4ca0-af78-4dceaa97ff3e)
 </details>
 
@@ -240,12 +242,15 @@ write_verilog FILE NAME
  <summary> Hierarchical vs Flat Synthesis </summary>
 	 
 **Flatten**
+
 *In Yosys, the "flatten" command is used to perform this flattening process. When you run the command, Yosys attempts to inline instances of submodules, removing the module hierarchy. This can be useful before performing certain types of optimizations that might work better on a flattened design.*
   
 **Different versions of the same logic gate**
+
 ![Screenshot from 2023-08-12 12-53-57](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/132be748-8774-4ac2-a979-9b14e0151e16)
 
 **Multiple Modules**
+
 ![Screenshot from 2023-08-12 14-00-16](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/c9ae3b7a-b781-45cd-b3c5-c22b5384685c)
 
 ```
@@ -323,6 +328,7 @@ endmodule
 They provide memory and state-holding capabilities, allowing circuits to store data and make decisions based on history and current inputs. Combinational circuits use logic gates to directly process inputs without memory elements.
 
 **Asynchronous**
+
 ![Screenshot from 2023-08-12 18-29-17](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/5903e52f-3fe8-4e24-af77-eefadf698c66)
 
 **Synchronous** 
@@ -353,11 +359,13 @@ Common techniques for combinational optimization include:
 * Logic Synthesis: Automatically generating optimized gate-level representations of a design from a high-level description.
 
 **Example AND Gate**
+
 ![Screenshot from 2023-08-13 11-48-57](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/3c49111a-a728-4e59-a019-794f1831d4ab)
 
 
 **Example OR Gate**
 Nand inverted and Gate
+
 ![Screenshot from 2023-08-13 11-50-59](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/fc5b74ca-c6a7-411f-97b7-13117df6392a)
 
 </details>
@@ -436,9 +444,11 @@ endmodule
 ```
 
 Waveform
+
 ![Screenshot from 2023-08-13 13-09-10](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/3cc095b7-db02-4725-859a-041c86927ce1)
 
 Synthesis
+
 ![Screenshot from 2023-08-13 13-12-07](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/f1f3786d-268a-4bfa-9341-eb2808e863d5)
 
 **Example dff_const4**
@@ -519,6 +529,7 @@ endmodule
  <summary> GLS Flow</summary>
 
 **GLS concept flow using iverilog**
+
 *The GLS flow is crucial for ensuring that the gate-level netlist faithfully represents the intended behavior of the original RTL design. It helps catch issues that might have been missed during RTL simulation and ensures that the design is ready for further downstream processes.*
 
 ![Screenshot from 2023-08-13 18-09-35](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/bd06e244-ba78-4a3b-9659-e82e7453ca8a)
@@ -536,12 +547,15 @@ module ternary_operator_mux (input i0 , input i1 , input sel , output y);
 ```
 
 Waveform
+
 ![Screenshot from 2023-08-13 22-12-03](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/cf98805f-5ad2-422e-bb13-d1d3502a02c6)
 
 Synthesis
+
 ![Screenshot from 2023-08-14 10-02-51](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/8127551a-35ec-407f-98f2-bb25c7bfcbcf)
 
 Waveform using Standers cells.
+
 ![Screenshot from 2023-08-14 10-29-57](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/7523f397-8456-47f6-968a-8d5dbbb4530c)
 
  
@@ -559,12 +573,15 @@ endmodule
 ```
 
 In this Wavefrom we cannot see changes in Y as of changes in i0. It just act as a flop which changes as their are changes in select line. 
+
 ![Screenshot from 2023-08-14 10-44-49](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/5f7897b0-cd48-416b-859f-031eee406211)
 
 Synthesis
+
 ![Screenshot from 2023-08-14 10-48-20](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/ea5eacb8-e397-420b-a714-3988fed30935)
 
 In this Wavefrom we can see changes in Y as of changes in i0. 
+
 ![Screenshot from 2023-08-14 10-48-39](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/506da874-c031-4b02-9ed5-dfb3f9822a88)
 
 
@@ -585,15 +602,19 @@ endmodule
 ```
 
 In this waveform thier is *Synthesis Simulation mismatch* due to Blocking Statements.
+
 ![Screenshot from 2023-08-14 11-12-28](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/9aff427f-a806-4d2d-9644-e22f6a2ba5c1)
 
 Synthesis 
+
 ![Screenshot from 2023-08-14 11-15-43](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/c1ff26e5-3c04-41e3-b036-9b921abcd235)
 
 Netist code after write_verilog.
+
 ![Screenshot from 2023-08-14 12-26-20](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/59b0d750-78b8-40aa-a001-72515efc7da5)
 
 Waveform using Standers cells.
+
 ![Screenshot from 2023-08-14 12-26-57](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/6b362ce8-baac-46ce-91cc-ff5c3920b43e)
 
 
@@ -618,12 +639,15 @@ end
 endmodule
 ```
 Waveform - *Here Y behaves as a Latch*
+
 ![Screenshot from 2023-08-14 18-24-12](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/f5dc6d8f-da6e-4e69-b5dd-fcf892ab00c1)
 
 Statistics - *We can see here we have infered a DLATCH*
+
 ![Screenshot from 2023-08-14 18-25-35](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/8b1d8996-6b92-4132-a540-85ec5b38c6ad)
 
 Synthesis - 
+
 ![Screenshot from 2023-08-14 18-26-58](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/8af7cd25-1745-4f4e-9ed2-1da67332b03a)
 
 **incomp_if2**
@@ -641,12 +665,15 @@ end
 endmodule
 ```
 Waveform- *Latching when both io & i1 are zero*
+
 ![Screenshot from 2023-08-14 18-35-00](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/32af67ac-a451-4468-9c65-5891f64ea120)
 
 Statistics *Infered a DLATCH*
+
 ![Screenshot from 2023-08-14 18-36-25](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/0647c0b6-64ce-46c1-a288-99a4ee916908)
 
 Synthesis- *The OR operation of i0 &i1 will be given to enable of DLATCH*
+
 ![Screenshot from 2023-08-14 18-37-02](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/dc42bd6f-5219-4ab6-be1e-f686df29f418)
 
 
@@ -668,12 +695,15 @@ end
 endmodule
 ```
 Waveform- *Latching when sel= 10 or sel= 11* It will continue matching the value of Y which was before.
+
 ![Screenshot from 2023-08-14 18-49-42](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/7030c10b-84be-4cef-83cb-5f5a1bb94b93)
 
 Statistics
+
 ![Screenshot from 2023-08-14 18-51-49](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/e3140cde-d263-4a1b-b157-ab2836a6c93f)
 
 Synthesis
+
 ![Screenshot from 2023-08-14 18-53-59](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/eb278226-a35b-403e-ae3b-5b5824f04b9b)
 
 **comp_case**
@@ -693,19 +723,25 @@ endmodule
 ```
 
 Waveform 
+
 ![Screenshot from 2023-08-14 18-59-49](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/66a69bed-c881-41af-9700-ad4c2bb3e006)
 
 Statistics- *No Latch involved*
+
 ![Screenshot from 2023-08-14 19-02-01](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/50ab42e3-b9dc-4be9-93ca-1ddb2304c005)
 
 Synthesis- *4x1 Mux*
+
 ![Screenshot from 2023-08-14 19-02-57](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/7036fc2c-79eb-4504-bebc-0213fe01e502)
 
 
 **partial_case_assign**
 Statistics- *Only one Latch infered in Path of X*
+
 ![Screenshot from 2023-08-14 19-12-27](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/4e96bd67-3374-4f9e-8d1b-53f045518887)
+
 Synthesis
+
 ![Screenshot from 2023-08-14 19-13-35](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/9f35077a-92d5-4254-86b8-9cc5f0bca6be)
 
 **bad_case**
@@ -721,15 +757,19 @@ end
 endmodule
 ```
 Waveform- *Output gets confused when sel= 10 or sel=11 and hence behaves as a LATCH*
+
 ![Screenshot from 2023-08-14 23-54-08](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/c23c5f73-0124-4cde-a62c-7be73a3bdeb2)
 
 Statistics- *No LATCH involved*
+
 ![Screenshot from 2023-08-14 22-36-49](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/3a396e94-7182-4630-bf29-4282b4c1b581)
 
 Synthesis- 
+
 ![Screenshot from 2023-08-14 22-38-36](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/dde6e462-b481-42cf-8a7d-f0488aa96c52)
 
 Waveform- *using standered cell models and testbench*
+
 ![Screenshot from 2023-08-14 22-55-00](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/a7ece238-913d-474e-a056-612a7b188334)
 
 
@@ -737,9 +777,249 @@ Waveform- *using standered cell models and testbench*
  <details>
  <summary> For Loop and For generate </summary>
 
+**mux_generate**
+```
+module mux_generate (input i0 , input i1, input i2 , input i3 , input [1:0] sel  , output reg y);
+wire [3:0] i_int;
+assign i_int = {i3,i2,i1,i0};
+integer k;
+always @ (*)
+begin
+for(k = 0; k < 4; k=k+1) begin
+	if(k == sel)
+		y = i_int[k];
+end
+end
+endmodule
+
+
+```
+
+Waveform
+
+![Screenshot from 2023-08-15 15-39-59](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/24efa353-de2d-413a-8155-d3745bc72657)
+
+Synthesis
+
+![Screenshot from 2023-08-15 15-48-51](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/6891f611-7dac-4975-a73a-f9abc0cecb3f)
+
+**demux_case**
+
+```
+module fa (input a , input b , input c, output co , output sum);
+	assign {co,sum}  = a + b + c ;
+endmodule
+```
+Waveform
+
+![Screenshot from 2023-08-15 15-49-57](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/24ac3ce3-32e2-4334-b6f6-e827be945c61)
+
+Synthesis
+
+![Screenshot from 2023-08-15 15-51-45](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/546fdf8f-0186-40bc-9612-ebede3520a5a)
+
+**demux_generate**
+```
+
+module demux_generate (output o0 , output o1, output o2 , output o3, output o4, output o5, output o6 , output o7 , input [2:0] sel  , input i);
+reg [7:0]y_int;
+assign {o7,o6,o5,o4,o3,o2,o1,o0} = y_int;
+integer k;
+always @ (*)
+begin
+y_int = 8'b0;
+for(k = 0; k < 8; k++) begin
+	if(k == sel)
+		y_int[k] = i;
+end
+end
+endmodule
+
+
+```
+Waveform- *Here we can see that the waveform is same as of demux_case but the code is Optimised*
+
+![Screenshot from 2023-08-15 16-04-01](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/04da75f5-f2f9-4727-8198-f2b2d726663a)
+
+**rca**
+
+Code of Full Adder(fa).
+```
+module fa (input a , input b , input c, output co , output sum);
+	assign {co,sum}  = a + b + c ;
+endmodule
+```
+
+Code of Ripple Carry Adder(rca).
+```
+module rca (input [7:0] num1 , input [7:0] num2 , output [8:0] sum);
+wire [7:0] int_sum;
+wire [7:0]int_co;
+
+genvar i;
+generate
+	for (i = 1 ; i < 8; i=i+1) begin
+		fa u_fa_1 (.a(num1[i]),.b(num2[i]),.c(int_co[i-1]),.co(int_co[i]),.sum(int_sum[i]));
+	end
+
+endgenerate
+fa u_fa_0 (.a(num1[0]),.b(num2[0]),.c(1'b0),.co(int_co[0]),.sum(int_sum[0]));
+
+
+assign sum[7:0] = int_sum;
+assign sum[8] = int_co[7];
+endmodule
+
+```
+
+**Note**- *Here we have to read the fafile also as our code for FA is in the fa.v file*
+
+Waveform
+
+![Screenshot from 2023-08-15 16-31-37](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/510f3d36-01f9-4bba-a5ae-0c700b409c03)
+
+Statistics
+
+![Screenshot from 2023-08-15 16-45-08](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/bc373d9c-e7d1-46fd-ac43-b3156878825b)
+
+Synthesis of Full Adder.
+
+![Screenshot from 2023-08-15 16-51-27](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/e03654ff-0a56-46b8-adf3-a38190032f8a)
+
+Synthesis of Ripple Carry Adder.
+
+![Screenshot from 2023-08-15 16-52-03](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/dab7e880-0767-4907-944d-60a0aa00e6c9)
+
+Code of Created Netlist(rca_net.v)
+```
+/* Generated by Yosys 0.31+16 (git sha1 b04d0e09e, clang 14.0.0-1ubuntu1.1 -fPIC -Os) */
+
+module fa(a, b, c, co, sum);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  wire _3_;
+  wire _4_;
+  wire _5_;
+  wire _6_;
+  wire _7_;
+  input a;
+  wire a;
+  input b;
+  wire b;
+  input c;
+  wire c;
+  output co;
+  wire co;
+  output sum;
+  wire sum;
+  sky130_fd_sc_hd__maj3_1 _8_ (
+    .A(_3_),
+    .B(_5_),
+    .C(_4_),
+    .X(_6_)
+  );
+  sky130_fd_sc_hd__xor3_1 _9_ (
+    .A(_3_),
+    .B(_5_),
+    .C(_4_),
+    .X(_7_)
+  );
+  assign _3_ = a;
+  assign _5_ = c;
+  assign _4_ = b;
+  assign co = _6_;
+  assign sum = _7_;
+endmodule
+
+module rca(num1, num2, sum);
+  wire [7:0] int_co;
+  wire [7:0] int_sum;
+  input [7:0] num1;
+  wire [7:0] num1;
+  input [7:0] num2;
+  wire [7:0] num2;
+  output [8:0] sum;
+  wire [8:0] sum;
+  fa \genblk1[1].u_fa_1  (
+    .a(num1[1]),
+    .b(num2[1]),
+    .c(int_co[0]),
+    .co(int_co[1]),
+    .sum(int_sum[1])
+  );
+  fa \genblk1[2].u_fa_1  (
+    .a(num1[2]),
+    .b(num2[2]),
+    .c(int_co[1]),
+    .co(int_co[2]),
+    .sum(int_sum[2])
+  );
+  fa \genblk1[3].u_fa_1  (
+    .a(num1[3]),
+    .b(num2[3]),
+    .c(int_co[2]),
+    .co(int_co[3]),
+    .sum(int_sum[3])
+  );
+  fa \genblk1[4].u_fa_1  (
+    .a(num1[4]),
+    .b(num2[4]),
+    .c(int_co[3]),
+    .co(int_co[4]),
+    .sum(int_sum[4])
+  );
+  fa \genblk1[5].u_fa_1  (
+    .a(num1[5]),
+    .b(num2[5]),
+    .c(int_co[4]),
+    .co(int_co[5]),
+    .sum(int_sum[5])
+  );
+  fa \genblk1[6].u_fa_1  (
+    .a(num1[6]),
+    .b(num2[6]),
+    .c(int_co[5]),
+    .co(int_co[6]),
+    .sum(int_sum[6])
+  );
+  fa \genblk1[7].u_fa_1  (
+    .a(num1[7]),
+    .b(num2[7]),
+    .c(int_co[6]),
+    .co(int_co[7]),
+    .sum(int_sum[7])
+  );
+  fa u_fa_0 (
+    .a(num1[0]),
+    .b(num2[0]),
+    .c(1'h0),
+    .co(int_co[0]),
+    .sum(int_sum[0])
+  );
+  assign sum = { int_co[7], int_sum };
+endmodule
+```
+Waveform of GLS.
+
+![Screenshot from 2023-08-15 17-03-52](https://github.com/ShubhamGitHub528/ASIC/assets/140998623/848ace89-3ff6-43d3-895a-d3e4f9de57a4)
+
+
+
+
 
 </details>
 
+
+## Word of Thanks
+I sciencerly thank **Mr. Kunal Gosh**(Founder/**VSD**) for helping me out to complete this flow smoothly.
+
+## Acknowledgement
+- Kunal Ghosh, VSD Corp. Pvt. Ltd.
+- Skywater Foundry
+- Chatgtp
+- Emil, Colleauge(IIIT-B)
+- Alwin, Colleauge(IIIT-B)
 
 ## References
 1. https://yosyshq.net/yosys/
